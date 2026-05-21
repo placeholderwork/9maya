@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9maya Casino</title>
+    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/intro.css">
+</head>
+<body>
+    <!-- Intro Section -->
+    <div id="intro" class="intro-container">
+        <div class="intro-content">
+            <img src="assets/images/placeholder.png" alt="Logo" class="intro-logo" id="introLogo">
+            <span class="intro-text" id="introText">'s work</span>
+        </div>
+    </div>
+
+    <!-- Main Game Container (hidden initially) -->
+    <div id="main-container" class="main-container hidden">
+        <header class="header">
+            <h1>🎰 9maya Casino 🎰</h1>
+            <div class="user-info">
+                <span>Баланс: <span id="balance">1000</span> 💰</span>
+                <button id="reset-btn" class="btn-reset">Сбросить прогресс</button>
+            </div>
+        </header>
+
+        <nav class="game-nav">
+            <button class="nav-btn active" data-game="slots">🎰 Слоты</button>
+            <button class="nav-btn" data-game="roulette">🎡 Рулетка</button>
+            <button class="nav-btn" data-game="blackjack">🃏 Блэкджек</button>
+            <button class="nav-btn" data-game="dice">🎲 Кости</button>
+            <button class="nav-btn" data-game="wheel">🎯 Колесо Фортуны</button>
+            <button class="nav-btn" data-game="mines">💣 Mines</button>
+            <button class="nav-btn" data-game="plinko">⚡ Plinko</button>
+            <button class="nav-btn" data-game="crash">📈 Crash</button>
+        </nav>
+
+        <main class="game-area">
+            <!-- Slots Game -->
+            <div id="game-slots" class="game-panel active">
+                <h2>🎰 Слоты</h2>
+                <div class="slot-machine">
+                    <div class="reels">
+                        <div class="reel" id="reel1">🍒</div>
+                        <div class="reel" id="reel2">🍋</div>
+                        <div class="reel" id="reel3">🍇</div>
+                    </div>
+                </div>
+                <div class="bet-controls">
+                    <input type="number" id="slots-bet" value="10" min="1" max="500">
+                    <button id="slots-spin" class="btn-action">Крутить!</button>
+                </div>
+                <p class="game-result" id="slots-result"></p>
+            </div>
+
+            <!-- Roulette Game -->
+            <div id="game-roulette" class="game-panel">
+                <h2>🎡 Рулетка</h2>
+                <div class="roulette-wheel" id="roulette-wheel">🔴</div>
+                <div class="bet-options">
+                    <button class="bet-option" data-bet="red">🔴 Красное (x2)</button>
+                    <button class="bet-option" data-bet="black">⚫ Черное (x2)</button>
+                    <button class="bet-option" data-bet="green">🟢 Зеленое (x14)</button>
+                </div>
+                <div class="bet-controls">
+                    <input type="number" id="roulette-bet" value="10" min="1" max="500">
+                    <button id="roulette-spin" class="btn-action">Крутить!</button>
+                </div>
+                <p class="game-result" id="roulette-result"></p>
+            </div>
+
+            <!-- Blackjack Game -->
+            <div id="game-blackjack" class="game-panel">
+                <h2>🃏 Блэкджек</h2>
+                <div class="blackjack-table">
+                    <div class="hand" id="dealer-hand">
+                        <h3>Дилер: <span id="dealer-score">0</span></h3>
+                        <div class="cards" id="dealer-cards"></div>
+                    </div>
+                    <div class="hand" id="player-hand">
+                        <h3>Вы: <span id="player-score">0</span></h3>
+                        <div class="cards" id="player-cards"></div>
+                    </div>
+                </div>
+                <div class="bet-controls">
+                    <input type="number" id="blackjack-bet" value="10" min="1" max="500">
+                    <button id="blackjack-deal" class="btn-action">Раздать</button>
+                </div>
+                <div class="action-controls hidden" id="bj-actions">
+                    <button id="bj-hit" class="btn-action">Взять</button>
+                    <button id="bj-stand" class="btn-action">Хватит</button>
+                </div>
+                <p class="game-result" id="blackjack-result"></p>
+            </div>
+
+            <!-- Dice Game -->
+            <div id="game-dice" class="game-panel">
+                <h2>🎲 Кости</h2>
+                <div class="dice-display" id="dice-display">🎲</div>
+                <div class="bet-options">
+                    <button class="bet-option" data-bet="over7">Больше 7 (x2)</button>
+                    <button class="bet-option" data-bet="under7">Меньше 7 (x2)</button>
+                    <button class="bet-option" data-bet="exact7">Ровно 7 (x4)</button>
+                </div>
+                <div class="bet-controls">
+                    <input type="number" id="dice-bet" value="10" min="1" max="500">
+                    <button id="dice-roll" class="btn-action">Бросить!</button>
+                </div>
+                <p class="game-result" id="dice-result"></p>
+            </div>
+
+            <!-- Wheel of Fortune -->
+            <div id="game-wheel" class="game-panel">
+                <h2>🎯 Колесо Фортуны</h2>
+                <div class="wheel-container" id="wheel-container">
+                    <div class="wheel" id="fortune-wheel">🎯</div>
+                </div>
+                <div class="bet-controls">
+                    <input type="number" id="wheel-bet" value="10" min="1" max="500">
+                    <button id="wheel-spin" class="btn-action">Крутить!</button>
+                </div>
+                <p class="game-result" id="wheel-result"></p>
+            </div>
+
+            <!-- Mines Game -->
+            <div id="game-mines" class="game-panel">
+                <h2>💣 Mines</h2>
+                <div class="mines-grid" id="mines-grid"></div>
+                <div class="bet-controls">
+                    <input type="number" id="mines-bet" value="10" min="1" max="500">
+                    <button id="mines-start" class="btn-action">Начать</button>
+                </div>
+                <p class="game-result" id="mines-result"></p>
+            </div>
+
+            <!-- Plinko Game -->
+            <div id="game-plinko" class="game-panel">
+                <h2>⚡ Plinko</h2>
+                <div class="plinko-board" id="plinko-board"></div>
+                <div class="bet-controls">
+                    <input type="number" id="plinko-bet" value="10" min="1" max="500">
+                    <button id="plinko-drop" class="btn-action">Уронить</button>
+                </div>
+                <p class="game-result" id="plinko-result"></p>
+            </div>
+
+            <!-- Crash Game -->
+            <div id="game-crash" class="game-panel">
+                <h2>📈 Crash</h2>
+                <div class="crash-display" id="crash-display">
+                    <span class="multiplier" id="crash-multiplier">1.00x</span>
+                </div>
+                <div class="bet-controls">
+                    <input type="number" id="crash-bet" value="10" min="1" max="500">
+                    <button id="crash-start" class="btn-action">Старт</button>
+                    <button id="crash-cashout" class="btn-action hidden">Забрать</button>
+                </div>
+                <p class="game-result" id="crash-result"></p>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>© 2024 9maya Casino - Только для развлечения!</p>
+        </footer>
+    </div>
+
+    <script src="assets/js/storage.js"></script>
+    <script src="assets/js/intro.js"></script>
+    <script src="assets/js/slots.js"></script>
+    <script src="assets/js/roulette.js"></script>
+    <script src="assets/js/blackjack.js"></script>
+    <script src="assets/js/dice.js"></script>
+    <script src="assets/js/wheel.js"></script>
+    <script src="assets/js/mines.js"></script>
+    <script src="assets/js/plinko.js"></script>
+    <script src="assets/js/crash.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
