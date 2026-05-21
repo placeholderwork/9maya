@@ -1,0 +1,465 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Header */
+.header {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #e94560;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px #e94560;
+}
+
+.user-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 1.2rem;
+}
+
+#balance {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.btn-reset {
+    background: #e94560;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-reset:hover {
+    background: #ff6b6b;
+    transform: scale(1.05);
+}
+
+/* Navigation */
+.game-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.nav-btn {
+    background: linear-gradient(45deg, #e94560, #0f3460);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.nav-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+}
+
+.nav-btn.active {
+    background: linear-gradient(45deg, #ffd700, #e94560);
+    color: #000;
+    font-weight: bold;
+}
+
+/* Game Area */
+.game-area {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.game-panel {
+    display: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.game-panel.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.game-panel h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #ffd700;
+}
+
+/* Bet Controls */
+.bet-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.bet-controls input {
+    width: 100px;
+    padding: 10px;
+    border: 2px solid #e94560;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.btn-action {
+    background: linear-gradient(45deg, #00b894, #00cec9);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+.btn-action:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 184, 148, 0.4);
+}
+
+.btn-action:disabled {
+    background: #666;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.game-result {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.3rem;
+    min-height: 30px;
+    font-weight: bold;
+}
+
+.win {
+    color: #00b894;
+    animation: pulse 0.5s ease-in-out;
+}
+
+.lose {
+    color: #e94560;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Bet Options */
+.bet-options {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 15px 0;
+}
+
+.bet-option {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #e94560;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.bet-option:hover {
+    background: #e94560;
+    transform: scale(1.05);
+}
+
+.bet-option.selected {
+    background: #e94560;
+    border-color: #ffd700;
+}
+
+/* Slots */
+.slot-machine {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    border-radius: 15px;
+    border: 3px solid #ffd700;
+}
+
+.reels {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.reel {
+    width: 80px;
+    height: 100px;
+    background: linear-gradient(180deg, #fff 0%, #f0f0f0 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    border: 3px solid #333;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.reel.spinning {
+    animation: spin 0.1s infinite;
+}
+
+@keyframes spin {
+    0% { transform: translateY(-5px); }
+    50% { transform: translateY(5px); }
+    100% { transform: translateY(-5px); }
+}
+
+/* Blackjack */
+.blackjack-table {
+    background: rgba(0, 100, 0, 0.3);
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid #00b894;
+}
+
+.hand {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    min-height: 80px;
+}
+
+.card {
+    width: 60px;
+    height: 90px;
+    background: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #333;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.action-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* Dice */
+.dice-display {
+    font-size: 5rem;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Wheel */
+.wheel-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.wheel {
+    font-size: 6rem;
+    display: inline-block;
+    transition: transform 3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+.wheel.spinning {
+    animation: rotateWheel 3s ease-out;
+}
+
+@keyframes rotateWheel {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(1080deg); }
+}
+
+/* Mines */
+.mines-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.mine-cell {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #0f3460, #16213e);
+    border: 2px solid #e94560;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    transition: all 0.3s;
+}
+
+.mine-cell:hover {
+    transform: scale(1.1);
+    background: #e94560;
+}
+
+.mine-cell.revealed {
+    cursor: default;
+}
+
+.mine-cell.gem {
+    background: linear-gradient(45deg, #00b894, #00cec9);
+}
+
+.mine-cell.bomb {
+    background: linear-gradient(45deg, #e94560, #ff6b6b);
+}
+
+/* Plinko */
+.plinko-board {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 15px;
+    min-height: 300px;
+    position: relative;
+}
+
+.plinko-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 10px 0;
+}
+
+.plinko-peg {
+    width: 15px;
+    height: 15px;
+    background: #ffd700;
+    border-radius: 50%;
+}
+
+.plinko-slot {
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Crash */
+.crash-display {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.multiplier {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #00b894;
+}
+
+.multiplier.crashed {
+    color: #e94560;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .user-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .game-nav {
+        gap: 5px;
+    }
+    
+    .nav-btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .reels {
+        gap: 10px;
+    }
+    
+    .reel {
+        width: 60px;
+        height: 80px;
+        font-size: 2rem;
+    }
+    
+    .mines-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    
+    .mine-cell {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+}
